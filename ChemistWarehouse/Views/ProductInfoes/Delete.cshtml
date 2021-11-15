@@ -1,0 +1,44 @@
+﻿@model ChemistWarehouse.Models.ProductInfo
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container mb-3">
+    <div class="text-center">
+        <h1 class="display-4">Product Info Operations</h1>
+        <p>Delete Product Info</p>
+    </div>
+    <p>
+        <a asp-action="Index" class="btn btn-dark">Back To List</a>
+    </p>
+    <hr />
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <h1>@Model.ProductName</h1>
+            <h2><s>$ @Model.Price</s> $ @Model.SalePrice</h2>
+            <div id="accordion" class="mb-3">
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapse1">
+                            Description
+                        </a>
+                    </div>
+                    <div id="collapse1" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            @Model.Description
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="ProductID" />
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </form>
+        </div>
+        <div class="card col-md-4">
+            <img class="card-img-top" src="~/uploads/@Model.ProductID@Model.Extension" alt="@Model.ProductName" style="width:100%">
+        </div>
+    </div>
+</div>

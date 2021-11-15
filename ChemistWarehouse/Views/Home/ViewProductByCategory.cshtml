@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ChemistWarehouse.Models.ProductInfo>
+
+@{
+    ViewData["Title"] = "ViewProductByCategory";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4">All Product of @ViewData["CategoryName"]</h1>
+    </div>
+    <div class="row" style="margin-bottom:50px;">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card w-100">
+                    <center>
+                        <img src="~/uploads/@item.ProductID@item.Extension" alt="" style="width:100%">
+                    </center>
+                    <div class="card-body">
+                        <h5 class="card-text">
+                            @item.ProductName
+                        </h5>
+                        <p class="card-text">$ @item.SalePrice</p>
+                        <a class="btn btn-dark btn-block" asp-action="ViewDetails" asp-route-id="@item.ProductID">View Details</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>

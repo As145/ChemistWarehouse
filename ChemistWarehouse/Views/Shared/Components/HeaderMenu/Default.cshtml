@@ -1,0 +1,9 @@
+﻿@model List<ChemistWarehouse.Models.Category>
+@foreach (var item in Model)
+{
+    <li class="nav-item">
+        <a class="nav-link text-white" asp-area=""
+           asp-controller="Home" asp-action="ViewProductByCategory"
+           asp-route-id="@item.CategoryID"><i class="fa fa-tasks"></i> @item.CategoryName</a>
+    </li>
+}
